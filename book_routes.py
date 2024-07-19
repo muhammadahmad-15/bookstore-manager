@@ -10,7 +10,7 @@ def add_book():
         data = request.get_json()
         db.session.add(Book(**data))
         db.session.commit()
-        return success_response(status_code=200, message='Book added successfuly')
+        return success_response(status_code=200, message='Book added successfully')
     except Exception as e:
         return error_response(status_code=400, error=str(e))
 
