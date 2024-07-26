@@ -32,7 +32,7 @@ def get_books():
 @book_bp.route('/books/<int:book_id>', methods = ['DELETE'])
 def delete_book(book_id):
     try:
-        book = Book.query.get(book_id)
+        book = db.session.get(Book,book_id)
         if not book:
             return error_response(status_code=404, error='Book not found!')
         db.session.delete(book)

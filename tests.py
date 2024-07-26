@@ -51,7 +51,7 @@ def test_delete_book(client):
     assert data['message'] == 'Book deleted successfully'
     
     with flask_app.app_context():
-        book = Book.query.get(book_id)
+        book = db.session.get(Book,book_id)
         assert book is None
 
 def test_get_books(client):
